@@ -1,0 +1,78 @@
+<div class="nav-md" (click)="hidemenu($event,true)">
+    <div class="container body">
+        <div class="main_container">
+        <!-- mian body -->
+            <!-- menu left side -->
+            <div class="col-md-3 left_col" [ngStyle]="{'display':isB2 === true ? 'block' : '' }">
+                <div class="left_col scroll-view">
+                    <div class="clearfix" style="margin-top:50px;"></div>
+                    <!-- menu profile quick info -->
+                    <div class="profile clearfix">
+                        <div class="profile_pic">
+                            <img src="img/user.png" alt="..." class="img-circle profile_img">
+                        </div>
+                        <div class="profile_info">
+                            <h2 style="margin-top:14px;">超级管理员</h2>
+                        </div>
+                    </div>
+                    <!-- /menu profile quick info -->
+                    <br/>
+                    <!-- sidebar menu -->
+                    <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                        <div class="menu_section">
+                            <ul class="nav side-menu">
+                                <li class="active">
+                                    <a [routerLink]="['/main']" >
+                                        <i class="fa fa-home"></i>后台首页
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="menu_section">
+                            <ul class="nav side-menu">
+                            <li><a (click)="jump($event,'product')"><i class="fa fa-laptop"></i> 商品列表 <span class="fa fa-chevron-down"></span></a>
+                            </li>
+                            <li><a (click)="jump($event,'user')"><i class="fa fa-user"></i> 用户列表 <span class="fa fa-chevron-down"></span></a>  
+                            </li>
+                            <li><a (click)="jump($event,'order')"><i class="fa fa-shopping-cart"></i> 订单列表 <span class="fa fa-chevron-down"></span></a> 
+                            </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- /sidebar menu -->
+                </div>
+            </div>
+            <!-- /menu left side -->
+            <!-- right side -->
+            <div class="top_nav">
+                <!-- top navigation -->
+                <div class="nav_menu">
+                    <nav>
+                        <div class="nav toggle" (click)="hidemenu($event,false)">
+                            <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+                        </div>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="">
+                                <a href="javascript:;" class="user-profile dropdown-toggle" 
+                                aria-expanded="false" (click)="jump($event,'login')">
+                                    <img src="img/user.png">{{tip}}
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <!-- /top navigation -->
+                <!-- logined -->
+                <div style="text-align:center;height:570px;" *ngIf="isB">
+                    <a href="http://soulstore.applinzi.com/#/index">
+                        <img src="img/00book_logo_back.png" width="70%" style="margin-top:60px">
+                    </a>
+                </div>
+                <!-- /logined -->
+                <router-outlet></router-outlet>
+            </div>      
+            <!-- /right side -->
+        <!-- /mian body -->    
+        </div>
+    </div>
+</div>

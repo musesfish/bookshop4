@@ -1,0 +1,7 @@
+angular2
+
+1 cnpm i
+2 ng serve
+3 http://localhost:4200/#/main
+
+4 

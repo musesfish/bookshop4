@@ -1,0 +1,56 @@
+<!-- list1 -->
+<div>
+    <div style="display:table;padding:10px 30px;width:100%;">
+        <h3>笔记本商品列表</h3>
+        <table class="table table-hover table-striped" id="table-laptop">
+            <thead>
+            <tr>
+                <th>
+                <div class="checkbox" style="margin: 0;">
+                    <label>
+                    <input type="checkbox">全选
+                    </label>
+                </div>
+                </th>
+                <th>编号</th>
+                <th>书名</th>
+                <th>价格</th>
+                <th>折扣</th>
+                <th>作者</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngIf="list.length==0">
+                <td colspan="8">
+                <div class="loading">
+                    <img src="img/loading.gif" alt="">
+                </div>
+                </td>
+            </tr>
+            <tr *ngFor="let b of list;let myIndex=index" id={{b.bid}}>
+                <td><input type="checkbox"></td>
+                <td><p class="fname">{{b.bid}}</p></td>
+                <td><p class="title">{{b.title}}</p></td>
+                <td><p class="spec">{{b.price}}</p></td>
+                <td><p class="spec">{{b.discount}}</p></td>
+                <td><p class="spec">{{b.author}}</p></td>
+                <td><a style="cursor:pointer" (click)="del($event,b.bid)">删除</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+        <ul class="pagination pull-right" id="pagination" *ngIf="pages.length!=0">
+            <li><a href="javascript:void(0)" (click)="getData(-1)">上一页</a></li>
+            <li *ngFor="let v of pages;" [ngClass]="{active:v==pageNum}">
+                <a *ngIf="v>pageNum-3 && v<pageNum+3" href="javascript:void(0)" (click)="getData(v)">
+                {{v}}
+                </a>
+            </li>
+            <li><a href="javascript:void(0)" (click)="getData(-2)">下一页</a></li>
+        </ul>                                                                                                                   </div>
+    </div>
+</div>
+<!-- /list1 -->
